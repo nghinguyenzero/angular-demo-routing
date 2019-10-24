@@ -1,4 +1,18 @@
 
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <label>Name: </label><input type="text" class="form-control" [(ngModel)]="name" >
+    <label>Price: </label><input type="number" class="form-control" [(ngModel)]="price">
+    <button type="button" class="btn btn-primary" [routerLink]="['/products']"
+      [queryParams]="{name: name ? name:'', price: price? price:''}"
+    >queryParams</button>
+    <button type="button" class="btn btn-success" [routerLink]="['/products']"
+    (click)="onSearch()"
+  >navigate</button>
+  </div>
+</div>
+
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

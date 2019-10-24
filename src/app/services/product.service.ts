@@ -33,9 +33,21 @@ export class ProductService {
   ];
   constructor() { }
 
-  getAllProducts = () => {
-    return this.products;
+  getAllProducts = (name?: string, price?: number) => {
+    let result: Product [] = [];
+    if (name) {
+      result = this.products.filter(product => {
+        return product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
+      });
+    }
+    if (price) {
+      result = this.products.filter(product => {
+        return product.price === price;
+      });
+    }
+    return result;
   }
+
   getProductById = (id: number) => {
     let result = null;
     this.products.forEach(product => {
