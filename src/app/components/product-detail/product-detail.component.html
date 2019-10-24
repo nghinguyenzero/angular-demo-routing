@@ -1,0 +1,12 @@
+
+<ng-container *ngIf="product; else noProduct">
+    <h1>ID: {{product.id}}</h1>
+    <h1>Name: {{product.name}}</h1>
+    <h2>Price: {{product.price| currency :'USD' : true}}</h2>
+    <h2>Status: {{product.status? 'Active': 'DeActive'}}</h2>
+
+    <a [routerLink]="['/products/2']">Snapshot ko ap dung chuyen trang trong cung router->/products/2</a>
+</ng-container>
+<ng-template #noProduct>
+  <h1>This products is emply</h1>
+</ng-template>
