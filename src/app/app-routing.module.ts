@@ -6,15 +6,18 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/index',
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'index',
     component: HomeComponent
   },
   {
@@ -26,11 +29,27 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
+    path: 'product/:id',
+    component: ProductsComponent,
+    children : [
+      {
+        path : '',
+        component: ProductDetailComponent,
+      },
+      {
+        path : 'edit',
+        component: ProductEditComponent,
+      },
+
+    ]
+  },
+  {
     path: 'products',
-    component: ProductsComponent
-  },  {
-    path: 'products/:id',
-    component: ProductDetailComponent
+    component: ProductListComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '**',

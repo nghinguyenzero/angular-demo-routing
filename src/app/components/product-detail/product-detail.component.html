@@ -5,8 +5,13 @@
     <h2>Price: {{product.price| currency :'USD' : true}}</h2>
     <h2>Status: {{product.status? 'Active': 'DeActive'}}</h2>
 
-    <a [routerLink]="['/products/2']">Snapshot ko ap dung chuyen trang trong cung router->/products/2</a>
+    <a [routerLink]="['/product/2']">Snapshot ko ap dung chuyen trang trong cung router->/products/2</a>
 </ng-container>
 <ng-template #noProduct>
   <h1>This products is emply</h1>
 </ng-template>
+<hr/>
+<button type="button" class="btn btn-success" (click)='onEdit()'>Edit</button>
+<button type="button" class="btn btn-danger" (click)='onDelete()'>Delete</button>
+<hr/>
+<button type="button" class="btn btn-default" (click)="onBackToList()">Back to list</button>

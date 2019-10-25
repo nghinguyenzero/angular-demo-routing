@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from './../../models/product.class';
 import { ProductService } from './../../services/product.service';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,11 @@ import { Subscription } from 'rxjs';
 export class ProductDetailComponent implements OnInit, OnDestroy {
   public product: Product = null;
   public subcription: Subscription;
-  constructor(public activateRoute: ActivatedRoute, public productService: ProductService) { }
+  constructor(
+    public activateRoute: ActivatedRoute,
+    public productService: ProductService,
+    public router: Router
+    ) { }
 
   ngOnInit() {
     // this.handleParamsBySnapShot();
@@ -32,4 +36,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       this.product = this.productService.getProductById(+data.id);
     });
   }
+  onBackToList() {
+    this.router.navigate(['products'], {
+      relativeTo: this.activateRoute.parent
+    });
+  }
+  onEdit() {
+    this.router.navigate(['edit'], {
+      relativeTo: this.activateRoute.parent
+    });
+  }
+  onDelete() {}
+
 }
