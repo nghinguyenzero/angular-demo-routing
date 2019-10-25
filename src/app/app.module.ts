@@ -10,11 +10,13 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductsComponent } from './components/products/products.component';
-import { ProductService } from './services/product.service';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { LoginComponent } from './components/login/login.component';
+//service
+import { ProductService } from './services/product.service';
+import { AuthGuard } from './services/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

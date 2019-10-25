@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'product/:id',
     component: ProductsComponent,
+    canActivate: [AuthGuard],
     children : [
       {
         path : '',
@@ -46,6 +48,8 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductListComponent,
+    canActivate: [AuthGuard],
+
   },
   {
     path: 'login',
