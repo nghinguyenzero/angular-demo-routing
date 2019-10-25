@@ -34,7 +34,7 @@ export class ProductService {
   constructor() { }
 
   getAllProducts = (name?: string, price?: number) => {
-    let result: Product [] = [];
+    let result: Product [] = this.products;
     if (name) {
       result = this.products.filter(product => {
         return product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
