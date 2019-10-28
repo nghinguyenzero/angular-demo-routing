@@ -1,6 +1,6 @@
 <h1>Home</h1>
 
-<input type="text" class="input-group" placeholder="Please enter key to access this page :123456" #key>
+<input type="text" class="input-group" placeholder="Please enter key:123456" #key>
 <span class="label label-danger" *ngIf='error === -1'>key is not valid!</span>
 <button type="button" class="btn btn-default" (click)='onAccess(key.value)'>Access</button>
 

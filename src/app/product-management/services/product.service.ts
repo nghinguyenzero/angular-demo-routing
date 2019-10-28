@@ -20,13 +20,13 @@ export class ProductService {
     },
     {
       id: 3,
-      name: 'Samsung Note 10',
+      name: 'Samsung note 10',
       price: 1200,
       status: true
     },
     {
       id: 4,
-      name: 'Samsung Galaxy S10',
+      name: 'Samsung galaxy S10',
       price: 900,
       status: true
     },
