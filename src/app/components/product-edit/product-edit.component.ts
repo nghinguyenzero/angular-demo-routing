@@ -24,21 +24,17 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     this.handleParams();
   }
 
-ngOnDestroy() {
-  if (this.subcription) {
-    this.subcription.unsubscribe();
+  ngOnDestroy() {
+    if (this.subcription) {
+      this.subcription.unsubscribe();
+    }
   }
-}
 
   handleParams() {
     this.subcription = this.activateRoute.parent.params.subscribe((params: Params) => {
-      // this.product = this.productService.getProductById(+data.id);
-      // console.log(params);
-
       const id = params.id;
       this.product = this.productService.getProductById(+id);
       console.log(this.product);
     });
-
   }
 }

@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 //service
 import { ProductService } from './services/product.service';
 import { AuthGuard } from './services/guards/auth.guard';
+import { AccessGuard } from './services/guards/access.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { AuthGuard } from './services/guards/auth.guard';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ProductService, AuthGuard],
+  providers: [ProductService, AuthGuard, AccessGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

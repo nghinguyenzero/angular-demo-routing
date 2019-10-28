@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  public error = 0;
   constructor(public router: Router) { }
 
   ngOnInit() {
@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('user')) {
         localStorage.removeItem('user');
         this.router.navigate(['']);
+    } else {
+      this.error = -1;
     }
   }
 }

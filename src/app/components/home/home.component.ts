@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public error = 0;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+  onAccess(key: string) {
+    console.log(key);
+    if (key === '123456') {
+      localStorage.removeItem('key');
+      localStorage.setItem('key', key);
+    } else {
+      this.error = -1;
+    }
   }
-
 }
